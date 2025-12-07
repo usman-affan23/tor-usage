@@ -1,4 +1,4 @@
-![tor-browser-ui](https://github.com/user-attachments/assets/0ffc9155-8ada-4757-83e5-8de0728617ef)
+<img width="400" src="https://github.com/user-attachments/assets/44bac428-01bb-4fe9-9d85-96cba7698bee" alt="Tor Logo with the onion and a crosshair on it"/>
 
 # Threat Hunt Report: Unauthorized TOR Usage (S0183)
 - [Scenario Creation](https://github.com/usman-affan23/tor-usage/blob/main/tor-scenario-creation)
@@ -25,16 +25,16 @@ Management suspects that some employees may be using TOR browsers to bypass netw
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-Searched for any file that had the string "tor" in it and discovered what looks like the user "interncr" downloaded a TOR installer, did something that resulted in many TOR-related files being copied to the desktop, and the creation of a file called `tor-shopping-list.txt` on the desktop at `2025-01-06T20:16:59.480414Z`. These events began at `2025-01-06T20:05:30.4441741Z`.
+Searched the DeviceFileEvents table for ANY file that had the string “tor” in it, and discovered what looks like the user “labuser” downloaded a TOR installer, did something that resulted in many TOR-related files being copied to the desktop, and the creation of a file called “tor-shopping-list.txt”. These events began at: `2025-12-06T19:49:18.5275428Z`.
 
 **Query used to locate events:**
 
 ```kql
 DeviceFileEvents
-| where DeviceName contains "windowsvm-mde"
+| where DeviceName == "threat-hunt-lab"
+| where InitiatingProcessAccountName == "labuser"
 | where FileName contains "tor"
-| where InitiatingProcessAccountName == "interncr"
-| where Timestamp >= datetime(2025-01-06T20:05:30.4441741Z)
+| where Timestamp >= datetime(2025-12-06T19:49:18.5275428Z)
 | order by Timestamp desc
 | project Timestamp, DeviceName, ActionType, FileName, FolderPath, SHA256, Account = InitiatingProcessAccountName
 ```
