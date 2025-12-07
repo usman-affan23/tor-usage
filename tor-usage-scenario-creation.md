@@ -74,9 +74,9 @@ DeviceFileEvents
 ---
 
 ## Created By:
-- **Author Name**: Carlton Hurd
-- **Author Contact**: https://www.linkedin.com/in/carlton-hurd-6069a5120/
-- **Date**: January 7th, 2025
+- **Author Name**: Usman Affan
+- **Author Contact**: https://www.linkedin.com/in/muhammad-affan20/
+- **Date**: November 25th, 2025
 
 ## Validated By:
 - **Reviewer Name**: 
@@ -84,12 +84,3 @@ DeviceFileEvents
 - **Validation Date**: 
 
 ---
-
-## Additional Notes:
-- **None**
-
----
-
-## Revision History:
-| **Version** | **Changes**                   | **Date**         | **Modified By**   |
-|-------------|-------------------------------|------------------|-------------------|
